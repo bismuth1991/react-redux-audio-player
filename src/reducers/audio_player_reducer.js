@@ -1,7 +1,7 @@
 
 const initialState = {
-  playingSongIndex: null,
-  songIds: [],
+  playingSongIndex: 1,
+  songIds: [1],
 };
 
 const audioPlayerReducer = (state = initialState, action) => {

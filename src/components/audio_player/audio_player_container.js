@@ -14,9 +14,9 @@ const mapStateToProps = ({ entities, session }) => {
     title: song.title,
     url: song.url,
     artist: artist.name,
-    artist_avatar: artist.avatar,
+    artistAvatar: artist.avatar,
     album: album.name,
-    album_cover: album.cover_image,
+    albumCover: album.coverImage,
   };
 };
 
