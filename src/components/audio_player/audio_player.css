@@ -1,0 +1,31 @@
+.audio-player-container {
+  display: flex;
+  margin-top: 10px;
+}
+
+.audio-player-container button {
+  height: 100%;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+.audio-player-container button i {
+  color: white;
+  font-size: 25px;
+}
+
+.album-cover img {
+  animation: spin infinite 20s linear;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

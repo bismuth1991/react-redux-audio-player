@@ -1,6 +1,8 @@
 import React from 'react';
 import { string } from 'prop-types';
 
+import './audio_player.css';
+
 class AudioPlayer extends React.Component {
   constructor() {
     super();
@@ -25,16 +27,20 @@ class AudioPlayer extends React.Component {
 
     return (
       <>
-        <figure>
+        <figure className="album-cover">
           <img src={albumCover} alt={title} />
-          <h3>{title}</h3>
-          <h4>{artist}</h4>
-          <h4>{album}</h4>
+          <p>
+            {title}
+            <br />
+            {artist}
+            <br />
+            {album}
+          </p>
         </figure>
 
+        <img src={artistAvatar} alt={artist} />
         <audio src={url} />
         <div className="audio-player-container">
-          <img src={artistAvatar} alt={artist} />
           <button type="button"><i className="fas fa-step-backward" /></button>
           {playIcon}
           <button type="button"><i className="fas fa-step-forward" /></button>
