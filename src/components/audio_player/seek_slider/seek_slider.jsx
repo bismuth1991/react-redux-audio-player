@@ -1,5 +1,5 @@
 import React from 'react';
-import { func, number } from 'prop-types';
+import { func, string } from 'prop-types';
 
 const SeekSlider = (props) => {
   const { seekValue, handleSeek, handleSeekSlider } = props;
@@ -10,7 +10,7 @@ const SeekSlider = (props) => {
       type="range"
       min="0"
       max="100"
-      steup="1"
+      step="1"
       value={seekValue}
       onMouseUp={handleSeek}
       onChange={handleSeekSlider}
@@ -19,7 +19,7 @@ const SeekSlider = (props) => {
 };
 
 SeekSlider.propTypes = {
-  seekValue: number.isRequired,
+  seekValue: string.isRequired,
   handleSeek: func.isRequired,
   handleSeekSlider: func.isRequired,
 };

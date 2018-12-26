@@ -2,13 +2,17 @@ import React from 'react';
 import { string } from 'prop-types';
 
 import './audio_player.css';
+import SeekSlider from './seek_slider/seek_slider';
 
 class AudioPlayer extends React.Component {
   constructor() {
     super();
 
+    this.audioRef = React.createRef();
+
     this.state = {
       isPlaying: false,
+      seekValue: '0',
     };
   }
 
@@ -17,7 +21,7 @@ class AudioPlayer extends React.Component {
       title, url, artist, artistAvatar, album, albumCover,
     } = this.props;
 
-    const { isPlaying } = this.state;
+    const { isPlaying, seekValue } = this.state;
     const playIcon = isPlaying ? (
       <button type="button"><i className="far fa-pause-circle" /></button>
     ) : (
@@ -29,21 +33,19 @@ class AudioPlayer extends React.Component {
       <>
         <figure className="album-cover">
           <img src={albumCover} alt={title} />
-          <p>
-            {title}
-            <br />
-            {artist}
-            <br />
-            {album}
-          </p>
         </figure>
 
-        <img src={artistAvatar} alt={artist} />
         <audio src={url} />
-        <div className="audio-player-container">
-          <button type="button"><i className="fas fa-step-backward" /></button>
-          {playIcon}
-          <button type="button"><i className="fas fa-step-forward" /></button>
+        <div className="audio-player-wrapper">
+          <div className="marquee"><p>{`${title} - ${artist}`}</p></div>
+
+          <div className="audio-player-buttons">
+            <button type="button"><i className="fas fa-step-backward" /></button>
+            {playIcon}
+            <button type="button"><i className="fas fa-step-forward" /></button>
+          </div>
+
+          <SeekSlider seekValue={seekValue} />
         </div>
       </>
     );
