@@ -36,5 +36,4 @@ const mapStateToProps = ({ session: { isAuthenticated } }) => ({
 });
 
 export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
-
 export const ProtectedRoute = withRouter(connect(mapStateToProps, null)(Protected));
