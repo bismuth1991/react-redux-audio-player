@@ -2,7 +2,7 @@ import React from 'react';
 import { func, string } from 'prop-types';
 
 const SeekSlider = (props) => {
-  const { seekValue, handleSeek, handleSeekSlider } = props;
+  const { seekValue, handleSeek } = props;
 
   return (
     <input
@@ -13,7 +13,6 @@ const SeekSlider = (props) => {
       step="1"
       value={seekValue}
       onMouseUp={handleSeek}
-      onChange={handleSeekSlider}
     />
   );
 };
@@ -21,7 +20,6 @@ const SeekSlider = (props) => {
 SeekSlider.propTypes = {
   seekValue: string.isRequired,
   handleSeek: func.isRequired,
-  handleSeekSlider: func.isRequired,
 };
 
 export default SeekSlider;

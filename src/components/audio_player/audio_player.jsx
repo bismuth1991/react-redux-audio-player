@@ -4,15 +4,16 @@ import { string } from 'prop-types';
 import './audio_player.css';
 import SeekSlider from './seek_slider/seek_slider';
 
+
 class AudioPlayer extends React.Component {
   constructor() {
     super();
 
-    this.audioRef = React.createRef();
-
     this.state = {
       isPlaying: false,
       seekValue: '0',
+      totalAudioTime: '0:00',
+      currentAudioTime: '0:00',
     };
   }
 
@@ -35,7 +36,13 @@ class AudioPlayer extends React.Component {
           <img src={albumCover} alt={title} />
         </figure>
 
-        <audio src={url} />
+        <audio
+          src={url}
+          ref={(audioRef) => { this.audioRef = audioRef; }}
+          onLoadedMetadata={this.getTotalAudioTime}
+          onTimeUpdate={this.updateCurrentAudioTime}
+        />
+
         <div className="audio-player-wrapper">
           <div className="marquee"><p>{`${title} - ${artist}`}</p></div>
 
@@ -45,7 +52,7 @@ class AudioPlayer extends React.Component {
             <button type="button"><i className="fas fa-step-forward" /></button>
           </div>
 
-          <SeekSlider seekValue={seekValue} />
+          <SeekSlider {...this.state} />
         </div>
       </>
     );
