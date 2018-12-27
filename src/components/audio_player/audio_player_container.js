@@ -4,9 +4,10 @@ import AudioPlayer from './audio_player';
 
 const mapStateToProps = ({ entities, session }) => {
   const { songs, artists, albums } = entities;
-  const { audioPlayer: { playingSongIndex } } = session;
+  const { audioPlayer: { songIds, playingSongIndex } } = session;
 
-  const song = songs[playingSongIndex];
+  const playingSongId = songIds[playingSongIndex];
+  const song = songs[playingSongId];
   const artist = artists[song.artistId];
   const album = albums[song.albumId];
 
