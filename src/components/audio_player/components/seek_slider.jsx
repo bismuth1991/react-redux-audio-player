@@ -1,5 +1,7 @@
 import React from 'react';
-import { func, string } from 'prop-types';
+import { func, string, number } from 'prop-types';
+
+import './seek_slider.css';
 
 const SeekSlider = (props) => {
   const {
@@ -15,7 +17,7 @@ const SeekSlider = (props) => {
         max="100"
         step="1"
         value={seekValue}
-        onMouseUp={handleSeek}
+        onChange={handleSeek}
       />
 
       <p>{`${currentAudioTime}/${totalAudioTime}`}</p>
@@ -24,7 +26,7 @@ const SeekSlider = (props) => {
 };
 
 SeekSlider.propTypes = {
-  seekValue: string.isRequired,
+  seekValue: number.isRequired,
   handleSeek: func.isRequired,
   currentAudioTime: string.isRequired,
   totalAudioTime: string.isRequired,

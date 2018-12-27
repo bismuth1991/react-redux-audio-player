@@ -16,6 +16,10 @@
   align-items: center;
 }
 
+.album-cover img {
+  animation: spin infinite 20s linear;
+}
+
 .marquee {
   width: 200px;
   
@@ -31,14 +35,14 @@
   margin-top: 0;
 }
 
-.audio-player-controls button {
+.audio-player-buttons button {
   height: 100%;
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
-.audio-player-controls button i {
+.audio-player-buttons button i {
   font-size: 25px;
 }
 

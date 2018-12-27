@@ -9,27 +9,27 @@ const convertTime = (time) => {
   return `${minutes}:${seconds}`;
 };
 
-export const getTotalAudioTime = () => {
+export function getTotalAudioTime() {
   const { duration } = this.audioRef;
 
   this.setState({
     totalAudioTime: convertTime(duration),
   });
-};
+}
 
-export const updateCurrentAudioTime = () => {
+export function updateCurrentAudioTime() {
   const { duration, currentTime } = this.audioRef;
-  const seekValue = (currentTime / duration * 100).toString();
+  const seekValue = (currentTime / duration * 100);
 
   this.setState({
     currentAudioTime: convertTime(currentTime),
     seekValue,
   });
-};
+}
 
-export const handleSeek = (e) => {
+export function handleSeek(e) {
   const { duration } = this.audioRef;
 
   const seekTime = duration * (e.target.value / 100);
   this.audioRef.currentTime = seekTime;
-};
+}

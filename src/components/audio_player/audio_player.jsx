@@ -1,8 +1,11 @@
 import React from 'react';
 import { string } from 'prop-types';
 
+import eventHandlers from './event_handlers/event_handlers';
+import SeekSlider from './components/seek_slider';
+
 import './audio_player.css';
-import SeekSlider from './seek_slider/seek_slider';
+import PlayPauseButton from './components/play_pause_button';
 
 
 class AudioPlayer extends React.Component {
@@ -11,48 +14,51 @@ class AudioPlayer extends React.Component {
 
     this.state = {
       isPlaying: false,
-      seekValue: '0',
+      seekValue: 0,
       totalAudioTime: '0:00',
       currentAudioTime: '0:00',
     };
+
+    this.getTotalAudioTime = eventHandlers.getTotalAudioTime.bind(this);
+    this.updateCurrentAudioTime = eventHandlers.updateCurrentAudioTime.bind(this);
+    this.handleSeek = eventHandlers.handleSeek.bind(this);
+    this.handlePlay = eventHandlers.handlePlay.bind(this);
+    this.handlePause = eventHandlers.handlePause.bind(this);
+    this.playPauseAudio = eventHandlers.playPauseAudio.bind(this);
   }
 
   render() {
     const {
-      title, url, artist, artistAvatar, album, albumCover,
+      title, url, artist, albumCover,
     } = this.props;
-
-    const { isPlaying, seekValue } = this.state;
-    const playIcon = isPlaying ? (
-      <button type="button"><i className="far fa-pause-circle" /></button>
-    ) : (
-      <button type="button"><i className="far fa-play-circle" /></button>
-    );
-
 
     return (
       <>
-        <figure className="album-cover">
-          <img src={albumCover} alt={title} />
-        </figure>
-
         <audio
           src={url}
           ref={(audioRef) => { this.audioRef = audioRef; }}
           onLoadedMetadata={this.getTotalAudioTime}
           onTimeUpdate={this.updateCurrentAudioTime}
+          onPause={this.handlePause}
+          onPlay={this.handlePlay}
         />
 
-        <div className="audio-player-wrapper">
-          <div className="marquee"><p>{`${title} - ${artist}`}</p></div>
+        <div className="playing-song-wrapper">
+          <figure className="album-cover">
+            <img src={albumCover} alt={title} />
+          </figure>
 
-          <div className="audio-player-buttons">
-            <button type="button"><i className="fas fa-step-backward" /></button>
-            {playIcon}
-            <button type="button"><i className="fas fa-step-forward" /></button>
+          <div className="audio-player-wrapper">
+            <div className="marquee"><p>{`${title} - ${artist}`}</p></div>
+
+            <div className="audio-player-buttons">
+              <button type="button"><i className="fas fa-step-backward" /></button>
+              <PlayPauseButton {...this.state} playPauseAudio={this.playPauseAudio} />
+              <button type="button"><i className="fas fa-step-forward" /></button>
+            </div>
+
+            <SeekSlider {...this.state} handleSeek={this.handleSeek} />
           </div>
-
-          <SeekSlider {...this.state} />
         </div>
       </>
     );
