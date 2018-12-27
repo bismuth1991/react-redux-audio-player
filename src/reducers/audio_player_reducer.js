@@ -1,4 +1,4 @@
-import { PLAY_NEXT_SONG } from '../actions/audio_player_actions';
+import { FORWARD } from '../actions/audio_player_actions';
 
 const initialState = {
   playingSongIndex: 1,
@@ -9,7 +9,7 @@ const audioPlayerReducer = (state = initialState, action) => {
   Object.freeze(state);
 
   switch (action.type) {
-    case PLAY_NEXT_SONG: {
+    case FORWARD: {
       const { songIds, playingSongIndex } = state;
 
       let newPlayingSongIndex = playingSongIndex + 1;

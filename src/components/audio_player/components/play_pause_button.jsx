@@ -2,15 +2,15 @@ import React from 'react';
 import { bool, func } from 'prop-types';
 
 const PlayPauseButton = (props) => {
-  const { isPlaying, playPauseAudio } = props;
+  const { isPlaying, playAudio, pauseAudio } = props;
 
   return (
     isPlaying ? (
-      <button type="button" onClick={playPauseAudio}>
+      <button type="button" onClick={pauseAudio}>
         <i className="far fa-pause-circle" />
       </button>
     ) : (
-      <button type="button" onClick={playPauseAudio}>
+      <button type="button" onClick={playAudio}>
         <i className="far fa-play-circle" />
       </button>
     )
@@ -19,7 +19,8 @@ const PlayPauseButton = (props) => {
 
 PlayPauseButton.propTypes = {
   isPlaying: bool.isRequired,
-  playPauseAudio: func.isRequired,
+  playAudio: func.isRequired,
+  pauseAudio: func.isRequired,
 };
 
 export default PlayPauseButton;

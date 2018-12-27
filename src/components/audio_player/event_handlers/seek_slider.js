@@ -19,7 +19,13 @@ export function getTotalAudioTime() {
 
 export function updateCurrentAudioTime() {
   const { duration, currentTime } = this.audioRef;
-  const seekValue = (currentTime / duration * 100);
+
+  let seekValue;
+  if (!duration) {
+    seekValue = 0;
+  } else {
+    seekValue = (currentTime / duration * 100);
+  }
 
   this.setState({
     currentAudioTime: convertTime(currentTime),

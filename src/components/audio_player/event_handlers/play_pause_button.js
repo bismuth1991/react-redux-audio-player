@@ -6,12 +6,10 @@ export function handlePause() {
   this.setState({ isPlaying: false });
 }
 
-export function playPauseAudio() {
-  const { isPlaying } = this.state;
+export function playAudio() {
+  this.audioRef.play();
+}
 
-  if (isPlaying) {
-    this.audioRef.pause();
-  } else {
-    this.audioRef.play();
-  }
+export function pauseAudio() {
+  this.audioRef.pause();
 }

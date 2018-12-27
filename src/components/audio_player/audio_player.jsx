@@ -25,7 +25,8 @@ class AudioPlayer extends React.Component {
     this.handleSeek = eventHandlers.handleSeek.bind(this);
     this.handlePlay = eventHandlers.handlePlay.bind(this);
     this.handlePause = eventHandlers.handlePause.bind(this);
-    this.playPauseAudio = eventHandlers.playPauseAudio.bind(this);
+    this.playAudio = eventHandlers.playAudio.bind(this);
+    this.pauseAudio = eventHandlers.pauseAudio.bind(this);
   }
 
   render() {
@@ -40,6 +41,7 @@ class AudioPlayer extends React.Component {
           ref={(audioRef) => { this.audioRef = audioRef; }}
           onLoadedMetadata={this.getTotalAudioTime}
           onTimeUpdate={this.updateCurrentAudioTime}
+          onLoad={this.handlePause}
           onPause={this.handlePause}
           onPlay={this.handlePlay}
         />
@@ -54,8 +56,16 @@ class AudioPlayer extends React.Component {
 
             <div className="audio-player-buttons">
               <button type="button"><i className="fas fa-step-backward" /></button>
-              <PlayPauseButton {...this.state} playPauseAudio={this.playPauseAudio} />
-              <ForwardButton {...this.props} />
+              <PlayPauseButton
+                {...this.state}
+                playAudio={this.playAudio}
+                pauseAudio={this.pauseAudio}
+              />
+              <ForwardButton
+                {...this.props}
+                {...this.state}
+                playAudio={this.playAudio}
+              />
             </div>
 
             <SeekSlider {...this.state} handleSeek={this.handleSeek} />
