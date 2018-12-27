@@ -1,5 +1,5 @@
 import React from 'react';
-import { string } from 'prop-types';
+import { string, func } from 'prop-types';
 
 import eventHandlers from './event_handlers/event_handlers';
 import SeekSlider from './components/seek_slider';
@@ -11,6 +11,7 @@ import VolumeSlider from './components/volume_slider';
 
 import './audio_player.css';
 import './components/slider.css';
+import SpinningDisc from './components/spinning_disc';
 
 class AudioPlayer extends React.Component {
   constructor() {
@@ -38,12 +39,16 @@ class AudioPlayer extends React.Component {
     this.handleMute = eventHandlers.handleMute.bind(this);
     this.handleUnmute = eventHandlers.handleUnmute.bind(this);
     this.updateVolume = eventHandlers.updateVolume.bind(this);
+    this.handleEnd = eventHandlers.handleEnd.bind(this);
   }
 
   render() {
     const {
-      title, url, artist, albumCover,
+      title, url, artist, album, albumCover, forward, backward,
     } = this.props;
+    const {
+      isPlaying, volume, seekValue, currentAudioTime, totalAudioTime,
+    } = this.state;
 
     return (
       <>
@@ -55,41 +60,45 @@ class AudioPlayer extends React.Component {
           onVolumeChange={this.updateVolume}
           onPause={this.handlePause}
           onPlay={this.handlePlay}
+          onEnded={this.handleEnd}
         />
 
         <div className="audio-player-container">
-          <figure className="album-cover">
-            <img src={albumCover} alt={title} />
-          </figure>
+          <SpinningDisc album={album} albumCover={albumCover} />
 
           <div className="component-wrapper">
             <div className="marquee"><p>{`${title} - ${artist}`}</p></div>
 
             <div className="audio-player-controls">
               <BackwardButton
-                {...this.props}
-                {...this.state}
+                isPlaying={isPlaying}
+                backward={backward}
                 playAudio={this.playAudio}
               />
               <PlayPauseButton
-                {...this.state}
+                isPlaying={isPlaying}
                 playAudio={this.playAudio}
                 pauseAudio={this.pauseAudio}
               />
               <ForwardButton
-                {...this.props}
-                {...this.state}
+                isPlaying={isPlaying}
+                forward={forward}
                 playAudio={this.playAudio}
               />
               <VolumeSlider
-                {...this.state}
+                volume={volume}
                 handleMute={this.handleMute}
                 handleUnmute={this.handleUnmute}
                 handleVolume={this.handleVolume}
               />
             </div>
 
-            <SeekSlider {...this.state} handleSeek={this.handleSeek} />
+            <SeekSlider
+              seekValue={seekValue}
+              currentAudioTime={currentAudioTime}
+              totalAudioTime={totalAudioTime}
+              handleSeek={this.handleSeek}
+            />
           </div>
         </div>
       </>
@@ -104,6 +113,8 @@ AudioPlayer.propTypes = {
   artistAvatar: string.isRequired,
   album: string.isRequired,
   albumCover: string.isRequired,
+  forward: func.isRequired,
+  backward: func.isRequired,
 };
 
 export default AudioPlayer;

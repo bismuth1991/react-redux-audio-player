@@ -4,7 +4,7 @@
   width: 100px !important;
   height: 10px;
   -webkit-appearance: none; 
-  /* z-index: 200;  */
+  z-index: 200; 
   border: 1px solid #e6e6e6; 
   background-color: #e6e6e6; 
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#e6e6e6), to(#d2d2d2)); 

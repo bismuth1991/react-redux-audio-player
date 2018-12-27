@@ -12,13 +12,11 @@
 .volume-wrapper input[type="range"] {
   position: absolute;
   bottom: 80px;
-  /* padding-righ: 45px; */
   transition: 0.2s 1s;
 }
 
 .volume-slider {
   visibility: hidden;
-  /* z-index: -1; */
 }
 
 .volume-wrapper:hover .volume-slider {

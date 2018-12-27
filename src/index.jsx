@@ -9,9 +9,6 @@ import './index.css';
 document.addEventListener('DOMContentLoaded', () => {
   const store = configureStore();
 
-  // TEST
-  window.state = store.getState();
-
   ReactDOM.render(
     <Root store={store} />,
     document.getElementById('root'),
