@@ -1,0 +1,29 @@
+.volume-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 30px;
+}
+
+.volume-button {
+  font-size: 25px;
+}
+
+.volume-wrapper input[type="range"][orient="vertical"] {
+  writing-mode: bt-lr; /* IE */
+  -webkit-appearance: slider-vertical; /* WebKit */
+  position: absolute;
+  bottom: 25px;
+  padding-bottom: 45px;
+  transition: 0.2s 1s;
+}
+
+.volume-slider {
+  visibility: hidden;
+  z-index: -1;
+}
+
+.volume-wrapper:hover .volume-slider {
+  visibility: visible;
+  transition-delay: 0s;
+}

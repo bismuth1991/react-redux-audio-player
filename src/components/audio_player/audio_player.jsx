@@ -8,6 +8,7 @@ import './audio_player.css';
 import PlayPauseButton from './components/play_pause_button';
 import ForwardButton from './components/forward_button';
 import BackwardButton from './components/backward_button';
+import VolumeSlider from './components/volume_slider';
 
 
 class AudioPlayer extends React.Component {
@@ -19,6 +20,8 @@ class AudioPlayer extends React.Component {
       seekValue: 0,
       totalAudioTime: '0:00',
       currentAudioTime: '0:00',
+      volume: 50,
+      preMuteVolume: 50,
     };
 
     this.getTotalAudioTime = eventHandlers.getTotalAudioTime.bind(this);
@@ -28,6 +31,10 @@ class AudioPlayer extends React.Component {
     this.handlePause = eventHandlers.handlePause.bind(this);
     this.playAudio = eventHandlers.playAudio.bind(this);
     this.pauseAudio = eventHandlers.pauseAudio.bind(this);
+    this.handleVolume = eventHandlers.handleVolume.bind(this);
+    this.handleMute = eventHandlers.handleMute.bind(this);
+    this.handleUnmute = eventHandlers.handleUnmute.bind(this);
+    this.updateVolume = eventHandlers.updateVolume.bind(this);
   }
 
   render() {
@@ -42,7 +49,7 @@ class AudioPlayer extends React.Component {
           ref={(audioRef) => { this.audioRef = audioRef; }}
           onLoadedMetadata={this.getTotalAudioTime}
           onTimeUpdate={this.updateCurrentAudioTime}
-          onLoad={this.handlePause}
+          onVolumeChange={this.updateVolume}
           onPause={this.handlePause}
           onPlay={this.handlePlay}
         />
@@ -70,6 +77,12 @@ class AudioPlayer extends React.Component {
                 {...this.props}
                 {...this.state}
                 playAudio={this.playAudio}
+              />
+              <VolumeSlider
+                {...this.state}
+                handleMute={this.handleMute}
+                handleUnmute={this.handleUnmute}
+                handleVolume={this.handleVolume}
               />
             </div>
 
