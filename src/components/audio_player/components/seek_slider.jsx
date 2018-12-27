@@ -1,7 +1,7 @@
 import React from 'react';
 import { func, string, number } from 'prop-types';
 
-// import './seek_slider.css';
+import './seek_slider.css';
 
 const SeekSlider = (props) => {
   const {
@@ -11,7 +11,7 @@ const SeekSlider = (props) => {
   return (
     <div className="seek-slider-wrapper">
       <input
-        className="seek-slider"
+        className="seek-slider slider range round horizontal-lowest-first"
         type="range"
         min="0"
         max="100"

@@ -4,12 +4,13 @@ import { string } from 'prop-types';
 import eventHandlers from './event_handlers/event_handlers';
 import SeekSlider from './components/seek_slider';
 
-import './audio_player.css';
 import PlayPauseButton from './components/play_pause_button';
 import ForwardButton from './components/forward_button';
 import BackwardButton from './components/backward_button';
 import VolumeSlider from './components/volume_slider';
 
+import './audio_player.css';
+import './components/slider.css';
 
 class AudioPlayer extends React.Component {
   constructor() {
@@ -17,6 +18,8 @@ class AudioPlayer extends React.Component {
 
     this.state = {
       isPlaying: false,
+      isOnLoop: false,
+      isOnSuffle: false,
       seekValue: 0,
       totalAudioTime: '0:00',
       currentAudioTime: '0:00',
@@ -54,15 +57,15 @@ class AudioPlayer extends React.Component {
           onPlay={this.handlePlay}
         />
 
-        <div className="playing-song-wrapper">
+        <div className="audio-player-container">
           <figure className="album-cover">
             <img src={albumCover} alt={title} />
           </figure>
 
-          <div className="audio-player-wrapper">
+          <div className="component-wrapper">
             <div className="marquee"><p>{`${title} - ${artist}`}</p></div>
 
-            <div className="audio-player-buttons">
+            <div className="audio-player-controls">
               <BackwardButton
                 {...this.props}
                 {...this.state}

@@ -1,7 +1,7 @@
 import React from 'react';
 import { number, func } from 'prop-types';
 
-// import './volume_slider.css';
+import './volume_slider.css';
 
 const VolumeSlider = (props) => {
   const {
@@ -34,7 +34,7 @@ const VolumeSlider = (props) => {
   return (
     <div className="volume-wrapper">
       <input
-        className="volume-slider"
+        className="volume-slider range round vertical-lowest-first"
         type="range"
         orient="vertical"
         min="0"
