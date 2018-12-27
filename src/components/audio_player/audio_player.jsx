@@ -6,6 +6,7 @@ import SeekSlider from './components/seek_slider';
 
 import './audio_player.css';
 import PlayPauseButton from './components/play_pause_button';
+import ForwardButton from './components/forward_button';
 
 
 class AudioPlayer extends React.Component {
@@ -54,7 +55,7 @@ class AudioPlayer extends React.Component {
             <div className="audio-player-buttons">
               <button type="button"><i className="fas fa-step-backward" /></button>
               <PlayPauseButton {...this.state} playPauseAudio={this.playPauseAudio} />
-              <button type="button"><i className="fas fa-step-forward" /></button>
+              <ForwardButton {...this.props} />
             </div>
 
             <SeekSlider {...this.state} handleSeek={this.handleSeek} />
