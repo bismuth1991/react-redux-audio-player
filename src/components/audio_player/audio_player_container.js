@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { forward } from '../../actions/audio_player_actions';
+import { forward, backward } from '../../actions/audio_player_actions';
 import AudioPlayer from './audio_player';
 
 const mapStateToProps = ({ entities, session }) => {
@@ -24,6 +24,7 @@ const mapStateToProps = ({ entities, session }) => {
 
 const mapDispatchToProps = dispatch => ({
   forward: () => dispatch(forward()),
+  backward: () => dispatch(backward()),
 });
 
 const AudioPlayerContainer = connect(

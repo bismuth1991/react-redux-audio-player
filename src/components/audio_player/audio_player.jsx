@@ -7,6 +7,7 @@ import SeekSlider from './components/seek_slider';
 import './audio_player.css';
 import PlayPauseButton from './components/play_pause_button';
 import ForwardButton from './components/forward_button';
+import BackwardButton from './components/backward_button';
 
 
 class AudioPlayer extends React.Component {
@@ -55,7 +56,11 @@ class AudioPlayer extends React.Component {
             <div className="marquee"><p>{`${title} - ${artist}`}</p></div>
 
             <div className="audio-player-buttons">
-              <button type="button"><i className="fas fa-step-backward" /></button>
+              <BackwardButton
+                {...this.props}
+                {...this.state}
+                playAudio={this.playAudio}
+              />
               <PlayPauseButton
                 {...this.state}
                 playAudio={this.playAudio}

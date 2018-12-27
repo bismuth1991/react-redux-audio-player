@@ -1,4 +1,4 @@
-import { FORWARD } from '../actions/audio_player_actions';
+import { FORWARD, BACKWARD } from '../actions/audio_player_actions';
 
 const initialState = {
   playingSongIndex: 1,
@@ -15,6 +15,19 @@ const audioPlayerReducer = (state = initialState, action) => {
       let newPlayingSongIndex = playingSongIndex + 1;
       if (newPlayingSongIndex > songIds.length - 1) {
         newPlayingSongIndex = 0;
+      }
+
+      return {
+        ...state,
+        playingSongIndex: newPlayingSongIndex,
+      };
+    }
+    case BACKWARD: {
+      const { songIds, playingSongIndex } = state;
+
+      let newPlayingSongIndex = playingSongIndex - 1;
+      if (newPlayingSongIndex < 0) {
+        newPlayingSongIndex = songIds.length - 1;
       }
 
       return {
