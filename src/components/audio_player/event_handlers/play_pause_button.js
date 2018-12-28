@@ -14,9 +14,9 @@ export function pauseAudio() {
   this.audioRef.pause();
 }
 
-export function handleEnd() {
-  const { forward } = this.props;
-
-  forward();
-  window.setTimeout(() => { this.playAudio(); }, 0);
+export function handleEnd(forward) {
+  return () => {
+    forward();
+    window.setTimeout(() => { this.playAudio(); }, 0);
+  };
 }

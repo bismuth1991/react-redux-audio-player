@@ -13,9 +13,8 @@ export function handleMute() {
   this.audioRef.volume = 0;
 }
 
-export function handleUnmute() {
-  const { preMuteVolume } = this.state;
-  this.audioRef.volume = preMuteVolume / 100;
+export function handleUnmute(preMuteVolume) {
+  return () => { this.audioRef.volume = preMuteVolume / 100; };
 }
 
 export function updateVolume() {

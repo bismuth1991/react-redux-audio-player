@@ -5,7 +5,7 @@ import './volume_slider.css';
 
 const VolumeSlider = (props) => {
   const {
-    volume, handleMute, handleUnmute, handleVolume,
+    volume, preMuteVolume, handleMute, handleUnmute, handleVolume,
   } = props;
 
   let volumeButton;
@@ -25,7 +25,7 @@ const VolumeSlider = (props) => {
   }
   if (volume === 0) {
     volumeButton = (
-      <button type="button" className="volume-button" onClick={handleUnmute}>
+      <button type="button" className="volume-button" onClick={handleUnmute(preMuteVolume)}>
         <i className="fas fa-volume-mute" />
       </button>
     );
@@ -51,6 +51,7 @@ const VolumeSlider = (props) => {
 
 VolumeSlider.propTypes = {
   volume: number.isRequired,
+  preMuteVolume: number.isRequired,
   handleMute: func.isRequired,
   handleUnmute: func.isRequired,
   handleVolume: func.isRequired,

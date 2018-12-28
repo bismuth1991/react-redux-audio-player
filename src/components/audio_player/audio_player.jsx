@@ -12,6 +12,7 @@ import VolumeSlider from './components/volume_slider';
 import './audio_player.css';
 import './components/slider.css';
 import SpinningDisc from './components/spinning_disc';
+import Marquee from './components/marquee';
 
 class AudioPlayer extends React.Component {
   constructor() {
@@ -20,7 +21,7 @@ class AudioPlayer extends React.Component {
     this.state = {
       isPlaying: false,
       isOnLoop: false,
-      isOnSuffle: false,
+      isOnShuffle: false,
       seekValue: 0,
       totalAudioTime: '0:00',
       currentAudioTime: '0:00',
@@ -44,10 +45,10 @@ class AudioPlayer extends React.Component {
 
   render() {
     const {
-      title, url, artist, album, albumCover, forward, backward,
+      title, url, artist, artistAvatar, album, albumCover, forward, backward,
     } = this.props;
     const {
-      isPlaying, volume, seekValue, currentAudioTime, totalAudioTime,
+      isPlaying, volume, preMuteVolume, seekValue, currentAudioTime, totalAudioTime,
     } = this.state;
 
     return (
@@ -60,14 +61,14 @@ class AudioPlayer extends React.Component {
           onVolumeChange={this.updateVolume}
           onPause={this.handlePause}
           onPlay={this.handlePlay}
-          onEnded={this.handleEnd}
+          onEnded={this.handleEnd(forward)}
         />
 
         <div className="audio-player-container">
           <SpinningDisc album={album} albumCover={albumCover} />
 
           <div className="component-wrapper">
-            <div className="marquee"><p>{`${title} - ${artist}`}</p></div>
+            <Marquee title={title} artist={artist} artistAvatar={artistAvatar} />
 
             <div className="audio-player-controls">
               <BackwardButton
@@ -87,6 +88,7 @@ class AudioPlayer extends React.Component {
               />
               <VolumeSlider
                 volume={volume}
+                preMuteVolume={preMuteVolume}
                 handleMute={this.handleMute}
                 handleUnmute={this.handleUnmute}
                 handleVolume={this.handleVolume}
