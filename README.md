@@ -64,7 +64,7 @@
   + ready for backend integration  
   
   + <details><summary>click for a sample of the full slice of state</summary>
-  <p>
+  <p>  
     
   ```javascript
   entities: {
