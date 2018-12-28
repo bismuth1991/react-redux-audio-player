@@ -63,7 +63,7 @@
   + highly scalable
   + ready for backend integration  
   
-  <details><summary>Full slice of state</summary>
+  <details><summary>Full sample slice of state</summary>
   <p>
 
   ```javascript
