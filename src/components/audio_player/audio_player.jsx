@@ -1,5 +1,5 @@
 import React from 'react';
-import { string, func } from 'prop-types';
+import { string, func, bool } from 'prop-types';
 
 import eventHandlers from './event_handlers/event_handlers';
 
@@ -12,6 +12,7 @@ import ShuffleButton from './components/shuffle_button';
 import BackwardButton from './components/backward_button';
 import SeekSlider from './components/seek_slider';
 import VolumeSlider from './components/volume_slider';
+import LoopButton from './components/loop_button';
 
 class AudioPlayer extends React.Component {
   constructor() {
@@ -42,6 +43,7 @@ class AudioPlayer extends React.Component {
     this.handleUnmute = eventHandlers.handleUnmute.bind(this);
     this.updateVolume = eventHandlers.updateVolume.bind(this);
     this.toggleShuffle = eventHandlers.toggleShuffle.bind(this);
+    this.toggleLoop = eventHandlers.toggleLoop.bind(this);
   }
 
   render() {
@@ -52,6 +54,7 @@ class AudioPlayer extends React.Component {
       artistAvatar,
       album,
       albumCover,
+      isEndOfLoop,
       forward,
       backward,
       shuffle,
@@ -75,6 +78,7 @@ class AudioPlayer extends React.Component {
           url={url}
           forward={forward}
           shuffle={shuffle}
+          isEndOfLoop={isEndOfLoop}
           isOnLoop={isOnLoop}
           isOnShuffle={isOnShuffle}
           getTotalAudioTime={this.getTotalAudioTime}
@@ -110,8 +114,12 @@ class AudioPlayer extends React.Component {
               />
               <ShuffleButton
                 isOnShuffle={isOnShuffle}
-                shuffle={shuffle}
                 toggleShuffle={this.toggleShuffle}
+              />
+              <LoopButton
+                isEndOfLoop={isEndOfLoop}
+                isOnLoop={isOnLoop}
+                toggleLoop={this.toggleLoop}
               />
               <VolumeSlider
                 volume={volume}
@@ -142,6 +150,7 @@ AudioPlayer.propTypes = {
   artistAvatar: string.isRequired,
   album: string.isRequired,
   albumCover: string.isRequired,
+  isEndOfLoop: bool.isRequired,
   forward: func.isRequired,
   backward: func.isRequired,
   shuffle: func.isRequired,

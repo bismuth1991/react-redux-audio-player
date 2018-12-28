@@ -7,6 +7,8 @@ const Audio = (props) => {
   const {
     audioRef,
     url,
+    isEndOfLoop,
+    isOnLoop,
     isOnShuffle,
     forward,
     shuffle,
@@ -19,6 +21,10 @@ const Audio = (props) => {
   } = props;
 
   const handleEnd = () => {
+    if (isEndOfLoop && !isOnLoop) {
+      return;
+    }
+
     if (isOnShuffle) {
       shuffle();
     } else {
@@ -45,6 +51,8 @@ const Audio = (props) => {
 Audio.propTypes = {
   audioRef: shape({ current: instanceOf(Element) }).isRequired,
   url: string.isRequired,
+  isEndOfLoop: bool.isRequired,
+  isOnLoop: bool.isRequired,
   isOnShuffle: bool.isRequired,
   forward: func.isRequired,
   shuffle: func.isRequired,

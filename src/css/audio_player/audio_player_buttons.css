@@ -21,6 +21,15 @@
   font-size: 40px;
 }
 
+.audio-player-controls .fa-random {
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+.audio-player-controls .fa-redo-alt {
+  font-size: 17px;
+}
+
 .audio-player-controls button:hover {
   color: white;
 }

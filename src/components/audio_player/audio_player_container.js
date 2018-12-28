@@ -5,7 +5,7 @@ import AudioPlayer from './audio_player';
 
 const mapStateToProps = ({ entities, session }) => {
   const { songs, artists, albums } = entities;
-  const { audioPlayer: { songIds, playingSongIndex } } = session;
+  const { audioPlayer: { songIds, playingSongIndex, playedSongIndices } } = session;
 
   const playingSongId = songIds[playingSongIndex];
   const song = songs[playingSongId];
@@ -19,6 +19,7 @@ const mapStateToProps = ({ entities, session }) => {
     artistAvatar: artist.avatar,
     album: album.name,
     albumCover: album.coverImage,
+    isEndOfLoop: playedSongIndices.length === songIds.length - 1,
   };
 };
 
