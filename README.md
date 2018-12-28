@@ -63,11 +63,13 @@
   + highly scalable
   + ready for backend integration  
   
-  + <details><summary>click for a sample of the full slice of state</summary>
-  <p>  
-    
-  ```javascript
-  entities: {
+
+  
+  <details><summary>CLICK ME</summary>
+<p>
+
+```javascript
+entities: {
     songs: {
       1: {
         id: 1,
@@ -127,6 +129,7 @@
       playedSongIndices: [0, 2],
     },
   },
-  ```
-  </p>
-  </details>
+```
+
+</p>
+</details>
