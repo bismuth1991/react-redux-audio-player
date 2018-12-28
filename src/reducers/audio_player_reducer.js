@@ -2,7 +2,7 @@ import { FORWARD, BACKWARD, SHUFFLE } from '../actions/audio_player_actions';
 
 const initialState = {
   playingSongIndex: 1,
-  songIds: [1, 2, 3],
+  songIds: [1, 2, 3, 4, 5, 6, 7, 8],
   prevSongIndex: 0,
   playedSongIndices: [],
 };
