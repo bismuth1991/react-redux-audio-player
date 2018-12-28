@@ -34,4 +34,28 @@
     onPlay={handlePlay}
     onEnded={handleEnd}
   />
+  ```  
+  
+2. Use of PropTypes
+  + easier debugging time
+  + great for teamwork
+  
+  ```javascript
+  //...
+  Audio.propTypes = {
+    audioRef: shape({ current: instanceOf(Element) }).isRequired,
+    url: string.isRequired,
+    isEndOfLoop: bool.isRequired,
+    isOnLoop: bool.isRequired,
+    isOnShuffle: bool.isRequired,
+    forward: func.isRequired,
+    shuffle: func.isRequired,
+    getTotalAudioTime: func.isRequired,
+    updateCurrentAudioTime: func.isRequired,
+    updateVolume: func.isRequired,
+    handlePause: func.isRequired,
+    handlePlay: func.isRequired,
+    playAudio: func.isRequired,
+  };
   ```
+  
