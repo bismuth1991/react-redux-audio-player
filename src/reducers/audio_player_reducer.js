@@ -2,13 +2,14 @@ import { FORWARD, BACKWARD, SHUFFLE } from '../actions/audio_player_actions';
 
 const initialState = {
   playingSongIndex: 1,
-  songIds: [1, 2, 3, 4, 5, 6, 7, 8],
+  songIds: [6, 7, 8],
   prevSongIndex: 0,
   playedSongIndices: [],
 };
 
 const getPlayedSongIndices = (playedSongIndices, playingSongIndex, songIds) => {
   let newPlayedSongIndices = [...playedSongIndices];
+
   if (!playedSongIndices.includes(playingSongIndex)) {
     newPlayedSongIndices = [...playedSongIndices, playingSongIndex];
   }
@@ -31,11 +32,15 @@ const audioPlayerReducer = (state = initialState, action) => {
         newPlayingSongIndex = 0;
       }
 
+      const newPlayedSongIndices = getPlayedSongIndices(
+        playedSongIndices, playingSongIndex, songIds,
+      );
+
       return {
         ...state,
         playingSongIndex: newPlayingSongIndex,
         prevSongIndex: playingSongIndex,
-        playedSongIndices: getPlayedSongIndices(playedSongIndices, playingSongIndex, songIds),
+        playedSongIndices: newPlayedSongIndices,
       };
     }
     case BACKWARD: {
@@ -48,27 +53,41 @@ const audioPlayerReducer = (state = initialState, action) => {
         newPrevSongIndex = songIds.length - 1;
       }
 
+      const newPlayedSongIndices = getPlayedSongIndices(
+        playedSongIndices, playingSongIndex, songIds,
+      );
+
       return {
         ...state,
         playingSongIndex: prevSongIndex,
         prevSongIndex: newPrevSongIndex,
-        playedSongIndices: getPlayedSongIndices(playedSongIndices, playingSongIndex, songIds),
+        playedSongIndices: newPlayedSongIndices,
       };
     }
     case SHUFFLE: {
       const { songIds, playedSongIndices, playingSongIndex } = state;
 
-      const nextSongIndices = songIds
-        .map((_, index) => index)
-        .filter(index => !playedSongIndices.includes(index) && playingSongIndex !== index);
+      const nextSongIndices = songIds.map((_, index) => index)
+        .filter(index => !playedSongIndices.includes(index))
+        .filter(index => index !== playingSongIndex);
 
-      const nextSongIndex = nextSongIndices[Math.floor(Math.random() * nextSongIndices.length)];
+      let nextSongIndex;
+      if (nextSongIndices.length === 1) {
+        [nextSongIndex] = nextSongIndices;
+      } else {
+        nextSongIndex = nextSongIndices[Math.floor(Math.random() * nextSongIndices.length)]
+          || Math.floor(Math.random() * songIds.length);
+      }
+
+      const newPlayedSongIndices = getPlayedSongIndices(
+        playedSongIndices, playingSongIndex, songIds,
+      );
 
       return {
         ...state,
         playingSongIndex: nextSongIndex,
         prevSongIndex: playingSongIndex,
-        playedSongIndices: getPlayedSongIndices(playedSongIndices, playingSongIndex, songIds),
+        playedSongIndices: newPlayedSongIndices,
       };
     }
     default:
