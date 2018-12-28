@@ -58,8 +58,10 @@ const audioPlayerReducer = (state = initialState, action) => {
     case SHUFFLE: {
       const { songIds, playedSongIndices, playingSongIndex } = state;
 
-      const nextSongIndices = songIds.filter((_, index) => !playedSongIndices.includes(index)
-        || playingSongIndex !== index);
+      const nextSongIndices = songIds
+        .map((_, index) => index)
+        .filter(index => !playedSongIndices.includes(index) || playingSongIndex !== index);
+
       const nextSongIndex = nextSongIndices[Math.floor(Math.random() * nextSongIndices.length)];
 
       return {

@@ -2,18 +2,19 @@ import React from 'react';
 import { string, func } from 'prop-types';
 
 import eventHandlers from './event_handlers/event_handlers';
-import SeekSlider from './components/seek_slider';
 
+import Audio from './components/audio';
+import SpinningDisc from './components/spinning_disc';
+import Marquee from './components/marquee';
 import PlayPauseButton from './components/play_pause_button';
 import ForwardButton from './components/forward_button';
 import BackwardButton from './components/backward_button';
+import SeekSlider from './components/seek_slider';
 import VolumeSlider from './components/volume_slider';
 
 import './audio_player.css';
 import './components/slider.css';
-import SpinningDisc from './components/spinning_disc';
-import Marquee from './components/marquee';
-import Audio from './components/audio';
+import ShuffleButton from './components/shuffle_button';
 
 class AudioPlayer extends React.Component {
   constructor() {
@@ -43,14 +44,31 @@ class AudioPlayer extends React.Component {
     this.handleMute = eventHandlers.handleMute.bind(this);
     this.handleUnmute = eventHandlers.handleUnmute.bind(this);
     this.updateVolume = eventHandlers.updateVolume.bind(this);
+    this.toggleShuffle = eventHandlers.toggleShuffle.bind(this);
   }
 
   render() {
     const {
-      title, url, artist, artistAvatar, album, albumCover, forward, backward, shuffle,
+      title,
+      url,
+      artist,
+      artistAvatar,
+      album,
+      albumCover,
+      forward,
+      backward,
+      shuffle,
     } = this.props;
+
     const {
-      isPlaying, isOnLoop, isOnShuffle, volume, preMuteVolume, seekValue, currentAudioTime, totalAudioTime,
+      isPlaying,
+      isOnLoop,
+      isOnShuffle,
+      volume,
+      preMuteVolume,
+      seekValue,
+      currentAudioTime,
+      totalAudioTime,
     } = this.state;
 
     return (
@@ -92,6 +110,11 @@ class AudioPlayer extends React.Component {
                 isPlaying={isPlaying}
                 forward={forward}
                 playAudio={this.playAudio}
+              />
+              <ShuffleButton
+                isOnShuffle={isOnShuffle}
+                shuffle={shuffle}
+                toggleShuffle={this.toggleShuffle}
               />
               <VolumeSlider
                 volume={volume}
