@@ -5,7 +5,7 @@
 + [Azure Site](https://rraudioplayer.azurewebsites.net/#/)
 
 ## Features
-1. Fully functional interface  
+### Fully functional interface  
   
   ![alt text](./sample.png "sample")
   + Playlist features, i.e. forward, backward, shuffle and loop are handled by Redux  
@@ -36,7 +36,7 @@
   />
   ```  
   
-2. Use of PropTypes
+### Use of PropTypes
   + easier debugging time
   + great for teamwork
   
@@ -59,11 +59,11 @@
   };
   ```
   
-3. Normalized Redux state shape with songs, artists and albums
+### Normalized Redux state shape with songs, artists and albums
   + highly scalable
   + ready for backend integration  
   
-  <details><summary>CLICK ME</summary>
+  <details><summary>Full slice of state</summary>
   <p>
 
   ```javascript
