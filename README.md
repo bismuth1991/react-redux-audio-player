@@ -63,73 +63,71 @@
   + highly scalable
   + ready for backend integration  
   
-
-  
   <details><summary>CLICK ME</summary>
-<p>
+  <p>
 
-```javascript
-entities: {
-    songs: {
-      1: {
-        id: 1,
-        title: 'Chia Tay Trong Mua',
-        artistId: 1,
-        albumId: 1,
-        url: 'https://www.dropbox.com/s/bplmds25ebqbyfg/ChiaTayTrongMua.mp3?dl=1',
+  ```javascript
+  entities: {
+      songs: {
+        1: {
+          id: 1,
+          title: 'Chia Tay Trong Mua',
+          artistId: 1,
+          albumId: 1,
+          url: 'https://www.dropbox.com/s/bplmds25ebqbyfg/ChiaTayTrongMua.mp3?dl=1',
+        },
+        2: {
+          id: 2,
+          title: 'Ve',
+          artistId: 2,
+          albumId: 2,
+          url: 'https://www.dropbox.com/s/asbuyjudiov3f2j/Ve.mp3?dl=1',
+        },
+        3: {
+          id: 3,
+          title: 'Bon Chu Lam',
+          artistId: 2,
+          albumId: 2,
+          url: 'https://www.dropbox.com/s/lio0f81hl8g2i8q/BonChuLam.mp3?dl=1',
+        },
       },
-      2: {
-        id: 2,
-        title: 'Ve',
-        artistId: 2,
-        albumId: 2,
-        url: 'https://www.dropbox.com/s/asbuyjudiov3f2j/Ve.mp3?dl=1',
-      },
-      3: {
-        id: 3,
-        title: 'Bon Chu Lam',
-        artistId: 2,
-        albumId: 2,
-        url: 'https://www.dropbox.com/s/lio0f81hl8g2i8q/BonChuLam.mp3?dl=1',
-      },
-    },
-    
-    artists: {
-      1: {
-        id: 1,
-        name: 'Huong Tram',
-        avatar: 'https://www.dropbox.com/s/tscrswi0228ez65/HuongTram.jpg?dl=1',
-      },
-      2: {
-        id: 2,
-        name: 'Truc Nhan',
-        avatar: 'https://www.dropbox.com/s/0o8epiiuba5f7q0/TrucNhan.jpg?dl=1',
-      },
-    },
-    
-    albums: {
-      1: {
-        id: 1,
-        name: 'Em Gai Mua',
-        coverImage: 'https://www.dropbox.com/s/rni2vqwqbodxjk9/EmGaiMua.jpg?dl=1',
-      },
-      2: {
-        id: 2,
-        name: 'Ve',
-        coverImage: 'https://www.dropbox.com/s/7mjkd2ta2d7fz4f/Ve.jpg?dl=1',
-      },
-    },
-  },
-  
-  session: {
-    audioPlayer: {
-      playingSongIndex: 3,
-      prevSongIndex: 0,
-      songIds: [1, 2, 3, 4, 5],
-      playedSongIndices: [0, 2],
-    },
-  },
-```
 
-</p>
-</details>
+      artists: {
+        1: {
+          id: 1,
+          name: 'Huong Tram',
+          avatar: 'https://www.dropbox.com/s/tscrswi0228ez65/HuongTram.jpg?dl=1',
+        },
+        2: {
+          id: 2,
+          name: 'Truc Nhan',
+          avatar: 'https://www.dropbox.com/s/0o8epiiuba5f7q0/TrucNhan.jpg?dl=1',
+        },
+      },
+
+      albums: {
+        1: {
+          id: 1,
+          name: 'Em Gai Mua',
+          coverImage: 'https://www.dropbox.com/s/rni2vqwqbodxjk9/EmGaiMua.jpg?dl=1',
+        },
+        2: {
+          id: 2,
+          name: 'Ve',
+          coverImage: 'https://www.dropbox.com/s/7mjkd2ta2d7fz4f/Ve.jpg?dl=1',
+        },
+      },
+    },
+
+    session: {
+      audioPlayer: {
+        playingSongIndex: 3,
+        prevSongIndex: 0,
+        songIds: [1, 2, 3, 4, 5],
+        playedSongIndices: [0, 2],
+      },
+    },
+  ```
+
+  </p>
+  </details>
