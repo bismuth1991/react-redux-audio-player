@@ -60,7 +60,7 @@ const audioPlayerReducer = (state = initialState, action) => {
 
       const nextSongIndices = songIds
         .map((_, index) => index)
-        .filter(index => !playedSongIndices.includes(index) || playingSongIndex !== index);
+        .filter(index => !playedSongIndices.includes(index) && playingSongIndex !== index);
 
       const nextSongIndex = nextSongIndices[Math.floor(Math.random() * nextSongIndices.length)];
 
