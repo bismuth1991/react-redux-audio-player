@@ -63,10 +63,6 @@
   + highly scalable
   + ready for backend integration  
   
-  <details>
-  <summary>Full sample slice of state</summary>
-  <p>
-
   ```javascript
   entities: {
       songs: {
@@ -129,6 +125,3 @@
       },
     },
   ```
-
-  </p>
-  </details>
