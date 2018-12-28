@@ -7,7 +7,7 @@ const PlayPauseButton = (props) => {
   return (
     isPlaying ? (
       <button type="button" onClick={pauseAudio}>
-        <i className="far fa-pause-circle" />
+        <i className="far fa-pause-circle active" />
       </button>
     ) : (
       <button type="button" onClick={playAudio}>

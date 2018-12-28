@@ -1,8 +1,6 @@
 import React from 'react';
 import { number, func } from 'prop-types';
 
-import './volume_slider.css';
-
 const VolumeSlider = (props) => {
   const {
     volume, preMuteVolume, handleMute, handleUnmute, handleVolume,
@@ -12,14 +10,14 @@ const VolumeSlider = (props) => {
   if (volume >= 50) {
     volumeButton = (
       <button type="button" className="volume-button" onClick={handleMute}>
-        <i className="fas fa-volume-up" />
+        <i className="fas fa-volume-up active" />
       </button>
     );
   }
   if (volume < 50) {
     volumeButton = (
       <button type="button" className="volume-button" onClick={handleMute}>
-        <i className="fas fa-volume-down" />
+        <i className="fas fa-volume-down active" />
       </button>
     );
   }
@@ -34,7 +32,7 @@ const VolumeSlider = (props) => {
   return (
     <div className="volume-wrapper">
       <input
-        className="volume-slider range round vertical-lowest-first"
+        className="volume-slider range round vertical-highest-first"
         type="range"
         orient="vertical"
         min="0"

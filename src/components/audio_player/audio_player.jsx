@@ -8,13 +8,10 @@ import SpinningDisc from './components/spinning_disc';
 import Marquee from './components/marquee';
 import PlayPauseButton from './components/play_pause_button';
 import ForwardButton from './components/forward_button';
+import ShuffleButton from './components/shuffle_button';
 import BackwardButton from './components/backward_button';
 import SeekSlider from './components/seek_slider';
 import VolumeSlider from './components/volume_slider';
-
-import './audio_player.css';
-import './components/slider.css';
-import ShuffleButton from './components/shuffle_button';
 
 class AudioPlayer extends React.Component {
   constructor() {

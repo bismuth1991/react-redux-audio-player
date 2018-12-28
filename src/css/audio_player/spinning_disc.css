@@ -1,0 +1,12 @@
+.audio-player-container figure {
+  margin-left: 0;
+}
+
+.audio-player-container img {
+  border-radius: 50%;
+  height: 100px;
+}
+
+.album-cover img {
+  animation: spin infinite 20s linear;
+}

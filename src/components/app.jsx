@@ -1,8 +1,19 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-// import { AuthRoute } from '../util/route_util';
 
 import MainPage from './main_page/main_page';
+
+import '../css/index.css';
+import '../css/animation.css';
+import '../css/main_page/main_page.css';
+import '../css/audio_player/audio_player.css';
+import '../css/audio_player/slider.css';
+import '../css/audio_player/spinning_disc.css';
+import '../css/audio_player/marquee.css';
+import '../css/audio_player/audio_player_buttons.css';
+import '../css/audio_player/shuffle_button.css';
+import '../css/audio_player/seek_slider.css';
+import '../css/audio_player/volume_slider.css';
 
 const App = () => (
   <>

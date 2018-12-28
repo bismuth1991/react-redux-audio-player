@@ -1,8 +1,6 @@
 import React from 'react';
 import { func, string, number } from 'prop-types';
 
-import './seek_slider.css';
-
 const SeekSlider = (props) => {
   const {
     seekValue, handleSeek, currentAudioTime, totalAudioTime,

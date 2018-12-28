@@ -11,7 +11,8 @@
 
 .volume-wrapper input[type="range"] {
   position: absolute;
-  bottom: 80px;
+  width: 60px;
+  bottom: 60px;
   transition: 0.2s 1s;
 }
 

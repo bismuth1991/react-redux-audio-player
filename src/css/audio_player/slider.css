@@ -1,0 +1,51 @@
+input[type="range"].range { 
+  cursor: pointer;
+  height: 9px;
+  -webkit-appearance: none; 
+  z-index: 200; 
+  border: 1px solid #b3b3b3; 
+  background-color: #b3b3b3; 
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#b3b3b3), to(white)); 
+  background-image: -webkit-linear-gradient(right, #b3b3b3, white); 
+  background-image: -moz-linear-gradient(right, #b3b3b3, white); 
+  background-image: -ms-linear-gradient(right, #b3b3b3, white); 
+  background-image: -o-linear-gradient(right, #b3b3b3, white); 
+}
+
+input[type="range"].range:focus {
+  border: 0 !important;
+  outline: none !important; 
+}
+
+input[type="range"].range::-webkit-slider-thumb {
+  -webkit-appearance: none; 
+  width: 10px; 
+  height: 10px; 
+  background-color: #815fdd; 
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8a6fd6), to(#815fdd)); 
+  background-image: -webkit-linear-gradient(right, #8a6fd6, #815fdd); 
+  background-image: -moz-linear-gradient(right, #8a6fd6, #815fdd); 
+  background-image: -ms-linear-gradient(right, #8a6fd6, #815fdd); 
+  background-image: -o-linear-gradient(right, #8a6fd6, #815fdd); 
+}
+
+input[type="range"].round {
+  -webkit-border-radius: 20px; 
+  -moz-border-radius: 20px; 
+  border-radius: 20px; 
+}
+
+input[type="range"].round::-webkit-slider-thumb {
+  -webkit-border-radius: 5px; 
+  -moz-border-radius: 5px; 
+  -o-border-radius: 5px; 
+  border-radius: 5px;
+}
+
+.vertical-highest-first {
+  -webkit-transform:rotate(270deg); 
+  -moz-transform:rotate(270deg); 
+  -o-transform:rotate(270deg); 
+  -ms-transform:rotate(270deg); 
+  transform:rotate(270deg); 
+}

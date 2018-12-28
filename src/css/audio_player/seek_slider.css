@@ -1,0 +1,15 @@
+.seek-slider-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.seek-slider-wrapper p {
+  margin-left: 10px;
+}
+
+.seek-slider {
+  margin-right: 10px;
+  width: 100px;
+}
+
