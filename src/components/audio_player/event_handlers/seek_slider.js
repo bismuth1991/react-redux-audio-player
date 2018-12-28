@@ -10,7 +10,7 @@ const convertTime = (time) => {
 };
 
 export function getTotalAudioTime() {
-  const { duration } = this.audioRef;
+  const { duration } = this.audioRef.current;
 
   this.setState({
     totalAudioTime: convertTime(duration),
@@ -18,7 +18,7 @@ export function getTotalAudioTime() {
 }
 
 export function updateCurrentAudioTime() {
-  const { duration, currentTime } = this.audioRef;
+  const { duration, currentTime } = this.audioRef.current;
 
   let seekValue;
   if (!duration) {
@@ -34,8 +34,8 @@ export function updateCurrentAudioTime() {
 }
 
 export function handleSeek(e) {
-  const { duration } = this.audioRef;
+  const { duration } = this.audioRef.current;
 
   const seekTime = duration * (e.target.value / 100);
-  this.audioRef.currentTime = seekTime;
+  this.audioRef.current.currentTime = seekTime;
 }

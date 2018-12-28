@@ -7,16 +7,9 @@ export function handlePause() {
 }
 
 export function playAudio() {
-  this.audioRef.play();
+  this.audioRef.current.play();
 }
 
 export function pauseAudio() {
-  this.audioRef.pause();
-}
-
-export function handleEnd(forward) {
-  return () => {
-    forward();
-    window.setTimeout(() => { this.playAudio(); }, 0);
-  };
+  this.audioRef.current.pause();
 }

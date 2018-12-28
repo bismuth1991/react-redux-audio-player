@@ -13,6 +13,7 @@ import './audio_player.css';
 import './components/slider.css';
 import SpinningDisc from './components/spinning_disc';
 import Marquee from './components/marquee';
+import Audio from './components/audio';
 
 class AudioPlayer extends React.Component {
   constructor() {
@@ -29,6 +30,8 @@ class AudioPlayer extends React.Component {
       preMuteVolume: 50,
     };
 
+    this.audioRef = React.createRef();
+
     this.getTotalAudioTime = eventHandlers.getTotalAudioTime.bind(this);
     this.updateCurrentAudioTime = eventHandlers.updateCurrentAudioTime.bind(this);
     this.handleSeek = eventHandlers.handleSeek.bind(this);
@@ -40,29 +43,33 @@ class AudioPlayer extends React.Component {
     this.handleMute = eventHandlers.handleMute.bind(this);
     this.handleUnmute = eventHandlers.handleUnmute.bind(this);
     this.updateVolume = eventHandlers.updateVolume.bind(this);
-    this.handleEnd = eventHandlers.handleEnd.bind(this);
   }
 
   render() {
     const {
-      title, url, artist, artistAvatar, album, albumCover, forward, backward,
+      title, url, artist, artistAvatar, album, albumCover, forward, backward, shuffle,
     } = this.props;
     const {
-      isPlaying, volume, preMuteVolume, seekValue, currentAudioTime, totalAudioTime,
+      isPlaying, isOnLoop, isOnShuffle, volume, preMuteVolume, seekValue, currentAudioTime, totalAudioTime,
     } = this.state;
 
     return (
       <>
-        <audio
-          src={url}
-          ref={(audioRef) => { this.audioRef = audioRef; }}
-          onLoadedMetadata={this.getTotalAudioTime}
-          onTimeUpdate={this.updateCurrentAudioTime}
-          onVolumeChange={this.updateVolume}
-          onPause={this.handlePause}
-          onPlay={this.handlePlay}
-          onEnded={this.handleEnd(forward)}
+        <Audio
+          audioRef={this.audioRef}
+          url={url}
+          forward={forward}
+          shuffle={shuffle}
+          isOnLoop={isOnLoop}
+          isOnShuffle={isOnShuffle}
+          getTotalAudioTime={this.getTotalAudioTime}
+          updateCurrentAudioTime={this.updateCurrentAudioTime}
+          updateVolume={this.updateVolume}
+          handlePause={this.handlePause}
+          handlePlay={this.handlePlay}
+          playAudio={this.playAudio}
         />
+
 
         <div className="audio-player-container">
           <SpinningDisc album={album} albumCover={albumCover} />
@@ -117,6 +124,7 @@ AudioPlayer.propTypes = {
   albumCover: string.isRequired,
   forward: func.isRequired,
   backward: func.isRequired,
+  shuffle: func.isRequired,
 };
 
 export default AudioPlayer;
