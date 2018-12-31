@@ -127,7 +127,7 @@
   ```
   
   ## Todos
-  1. User redux-saga to handle logic & 'purify' audioPlayer reducer
+  1. ~~User redux-saga to handle logic & 'purify' audioPlayer reducer~~
   2. Implement react-cookies to persist player between refresh
   3. Integrate into my other app, Zing-Lite
   
