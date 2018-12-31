@@ -7,89 +7,95 @@ const initialState = {
   playedSongIndices: [],
 };
 
-const getPlayedSongIndices = (playedSongIndices, playingSongIndex, songIds) => {
-  let newPlayedSongIndices = [...playedSongIndices];
+// const getPlayedSongIndices = (playedSongIndices, playingSongIndex, songIds) => {
+//   let newPlayedSongIndices = [...playedSongIndices];
 
-  if (!playedSongIndices.includes(playingSongIndex)) {
-    newPlayedSongIndices = [...playedSongIndices, playingSongIndex];
-  }
-  if (newPlayedSongIndices.length === songIds.length) {
-    newPlayedSongIndices = [];
-  }
+//   if (!playedSongIndices.includes(playingSongIndex)) {
+//     newPlayedSongIndices = [...playedSongIndices, playingSongIndex];
+//   }
+//   if (newPlayedSongIndices.length === songIds.length) {
+//     newPlayedSongIndices = [];
+//   }
 
-  return newPlayedSongIndices;
-};
+//   return newPlayedSongIndices;
+// };
 
 const audioPlayerReducer = (state = initialState, action) => {
-  Object.freeze(state);
+  // Object.freeze(state);
 
   switch (action.type) {
-    case FORWARD: {
-      const { songIds, playingSongIndex, playedSongIndices } = state;
+    // case FORWARD: {
+    //   const { songIds, playingSongIndex, playedSongIndices } = state;
 
-      let newPlayingSongIndex = playingSongIndex + 1;
-      if (newPlayingSongIndex > songIds.length - 1) {
-        newPlayingSongIndex = 0;
-      }
+    //   let newPlayingSongIndex = playingSongIndex + 1;
+    //   if (newPlayingSongIndex > songIds.length - 1) {
+    //     newPlayingSongIndex = 0;
+    //   }
 
-      const newPlayedSongIndices = getPlayedSongIndices(
-        playedSongIndices, playingSongIndex, songIds,
-      );
+    //   const newPlayedSongIndices = getPlayedSongIndices(
+    //     playedSongIndices, playingSongIndex, songIds,
+    //   );
 
-      return {
-        ...state,
-        playingSongIndex: newPlayingSongIndex,
-        prevSongIndex: playingSongIndex,
-        playedSongIndices: newPlayedSongIndices,
-      };
-    }
-    case BACKWARD: {
-      const {
-        songIds, playingSongIndex, playedSongIndices, prevSongIndex,
-      } = state;
+    //   return {
+    //     ...state,
+    //     playingSongIndex: newPlayingSongIndex,
+    //     prevSongIndex: playingSongIndex,
+    //     playedSongIndices: newPlayedSongIndices,
+    //   };
+    // }
+    // case BACKWARD: {
+    //   const {
+    //     songIds, playingSongIndex, playedSongIndices, prevSongIndex,
+    //   } = state;
 
-      let newPrevSongIndex = prevSongIndex - 1;
-      if (newPrevSongIndex < 0) {
-        newPrevSongIndex = songIds.length - 1;
-      }
+    //   let newPrevSongIndex = prevSongIndex - 1;
+    //   if (newPrevSongIndex < 0) {
+    //     newPrevSongIndex = songIds.length - 1;
+    //   }
 
-      const newPlayedSongIndices = getPlayedSongIndices(
-        playedSongIndices, playingSongIndex, songIds,
-      );
+    //   const newPlayedSongIndices = getPlayedSongIndices(
+    //     playedSongIndices, playingSongIndex, songIds,
+    //   );
 
-      return {
-        ...state,
-        playingSongIndex: prevSongIndex,
-        prevSongIndex: newPrevSongIndex,
-        playedSongIndices: newPlayedSongIndices,
-      };
-    }
-    case SHUFFLE: {
-      const { songIds, playedSongIndices, playingSongIndex } = state;
+    //   return {
+    //     ...state,
+    //     playingSongIndex: prevSongIndex,
+    //     prevSongIndex: newPrevSongIndex,
+    //     playedSongIndices: newPlayedSongIndices,
+    //   };
+    // }
+    // case SHUFFLE: {
+    //   const { songIds, playedSongIndices, playingSongIndex } = state;
 
-      const nextSongIndices = songIds.map((_, index) => index)
-        .filter(index => !playedSongIndices.includes(index))
-        .filter(index => index !== playingSongIndex);
+    //   const nextSongIndices = songIds.map((_, index) => index)
+    //     .filter(index => !playedSongIndices.includes(index))
+    //     .filter(index => index !== playingSongIndex);
 
-      let nextSongIndex;
-      if (nextSongIndices.length === 1) {
-        [nextSongIndex] = nextSongIndices;
-      } else {
-        nextSongIndex = nextSongIndices[Math.floor(Math.random() * nextSongIndices.length)]
-          || Math.floor(Math.random() * songIds.length);
-      }
+    //   let nextSongIndex;
+    //   if (nextSongIndices.length === 1) {
+    //     [nextSongIndex] = nextSongIndices;
+    //   } else {
+    //     nextSongIndex = nextSongIndices[Math.floor(Math.random() * nextSongIndices.length)]
+    //       || Math.floor(Math.random() * songIds.length);
+    //   }
 
-      const newPlayedSongIndices = getPlayedSongIndices(
-        playedSongIndices, playingSongIndex, songIds,
-      );
+    //   const newPlayedSongIndices = getPlayedSongIndices(
+    //     playedSongIndices, playingSongIndex, songIds,
+    //   );
 
-      return {
-        ...state,
-        playingSongIndex: nextSongIndex,
-        prevSongIndex: playingSongIndex,
-        playedSongIndices: newPlayedSongIndices,
-      };
-    }
+    //   return {
+    //     ...state,
+    //     playingSongIndex: nextSongIndex,
+    //     prevSongIndex: playingSongIndex,
+    //     playedSongIndices: newPlayedSongIndices,
+    //   };
+    // }
+    case FORWARD:
+      return action.newState;
+    case BACKWARD:
+      return action.newState;
+    case SHUFFLE:
+      return action.newState;
     default:
       return state;
   }
