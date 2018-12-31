@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import { forward, backward, shuffle } from '../../actions/audio_player_actions';
+import { receiveForward, receiveBackward, receiveShuffle } from '../../actions/audio_player_actions';
 import AudioPlayer from './audio_player';
 
 const mapStateToProps = ({ entities, session }) => {
@@ -24,9 +24,9 @@ const mapStateToProps = ({ entities, session }) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  forward: () => dispatch(forward()),
-  backward: () => dispatch(backward()),
-  shuffle: () => dispatch(shuffle()),
+  forward: () => dispatch(receiveForward()),
+  backward: () => dispatch(receiveBackward()),
+  shuffle: () => dispatch(receiveShuffle()),
 });
 
 const AudioPlayerContainer = connect(

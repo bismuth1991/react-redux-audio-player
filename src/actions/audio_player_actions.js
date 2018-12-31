@@ -16,3 +16,14 @@ export const backward = () => ({
 export const shuffle = () => ({
   type: SHUFFLE,
 });
+
+export const receiveForward = () => ({
+  type: RECEIVE_FORWARD,
+});
+export const receiveBackward = () => ({
+  type: RECEIVE_BACKWARD,
+});
+
+export const receiveShuffle = () => ({
+  type: RECEIVE_SHUFFLE,
+});
