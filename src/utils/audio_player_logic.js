@@ -65,11 +65,12 @@ export const shuffleLogic = (state) => {
     .filter(index => !history.includes(index));
 
   let nextSongIndex;
-  if (nextSongIndices.length === 1) {
+  if (nextSongIndices.length === 0) {
+    nextSongIndex = Math.floor(Math.random() * songIds.length);
+  } else if (nextSongIndices.length === 1) {
     [nextSongIndex] = nextSongIndices;
   } else {
-    nextSongIndex = nextSongIndices[Math.floor(Math.random() * nextSongIndices.length)]
-      || Math.floor(Math.random() * songIds.length);
+    nextSongIndex = nextSongIndices[Math.floor(Math.random() * nextSongIndices.length)];
   }
 
   const newPlayedSongIndices = getPlayedSongIndices(
