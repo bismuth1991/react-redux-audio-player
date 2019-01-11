@@ -116,14 +116,14 @@
       },
     },
 
-    session: {
-      audioPlayer: {
-        playingSongIndex: 3,
-        prevSongIndex: 0,
-        songIds: [1, 2, 3, 4, 5],
-        playedSongIndices: [0, 2],
-      },
+  session: {
+    audioPlayer: {
+      playingSongIndex: 3,
+      prevSongIndex: 0,
+      songIds: [1, 2, 3, 4, 5],
+      playedSongIndices: [0, 2],
     },
+  },
   ```
   
   ## Todos
