@@ -1,13 +1,13 @@
 {
-  "main.css": "/react-redux-AudioPlayer/static/css/main.9b5b518d.chunk.css",
-  "main.js": "/react-redux-AudioPlayer/static/js/main.5adf54b0.chunk.js",
-  "main.js.map": "/react-redux-AudioPlayer/static/js/main.5adf54b0.chunk.js.map",
-  "static/js/1.21b04e15.chunk.js": "/react-redux-AudioPlayer/static/js/1.21b04e15.chunk.js",
-  "static/js/1.21b04e15.chunk.js.map": "/react-redux-AudioPlayer/static/js/1.21b04e15.chunk.js.map",
-  "runtime~main.js": "/react-redux-AudioPlayer/static/js/runtime~main.bac397f6.js",
-  "runtime~main.js.map": "/react-redux-AudioPlayer/static/js/runtime~main.bac397f6.js.map",
-  "static/css/main.9b5b518d.chunk.css.map": "/react-redux-AudioPlayer/static/css/main.9b5b518d.chunk.css.map",
-  "index.html": "/react-redux-AudioPlayer/index.html",
-  "precache-manifest.e13e50131e0df8200d2216b27d1308d3.js": "/react-redux-AudioPlayer/precache-manifest.e13e50131e0df8200d2216b27d1308d3.js",
-  "service-worker.js": "/react-redux-AudioPlayer/service-worker.js"
+  "main.css": "/react-redux-audio-player/static/css/main.93453a05.chunk.css",
+  "main.js": "/react-redux-audio-player/static/js/main.1cf2d544.chunk.js",
+  "main.js.map": "/react-redux-audio-player/static/js/main.1cf2d544.chunk.js.map",
+  "static/js/1.21b04e15.chunk.js": "/react-redux-audio-player/static/js/1.21b04e15.chunk.js",
+  "static/js/1.21b04e15.chunk.js.map": "/react-redux-audio-player/static/js/1.21b04e15.chunk.js.map",
+  "runtime~main.js": "/react-redux-audio-player/static/js/runtime~main.226a75df.js",
+  "runtime~main.js.map": "/react-redux-audio-player/static/js/runtime~main.226a75df.js.map",
+  "static/css/main.93453a05.chunk.css.map": "/react-redux-audio-player/static/css/main.93453a05.chunk.css.map",
+  "index.html": "/react-redux-audio-player/index.html",
+  "precache-manifest.8d4bfd5d14b1e765404f6a03c89e9afc.js": "/react-redux-audio-player/precache-manifest.8d4bfd5d14b1e765404f6a03c89e9afc.js",
+  "service-worker.js": "/react-redux-audio-player/service-worker.js"
 }

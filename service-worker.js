@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/react-redux-AudioPlayer/precache-manifest.e13e50131e0df8200d2216b27d1308d3.js"
+  "/react-redux-audio-player/precache-manifest.8d4bfd5d14b1e765404f6a03c89e9afc.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/react-redux-AudioPlayer/index.html", {
+workbox.routing.registerNavigationRoute("/react-redux-audio-player/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
